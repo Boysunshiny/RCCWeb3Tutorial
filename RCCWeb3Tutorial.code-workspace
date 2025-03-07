@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "openWeb3",
+			"path": "RemoteCodeCamp/openWeb3"
+		},
+		{
+			"name": "Weekly-Tasks",
+			"path": "FoundationalTasks/Weekly-Tasks"
+		},
+		{
+			"name": "Level0",
+			"path": "Level0"
+		},
+		{
+			"name": "Level1",
+			"path": "Level1"
+		}
+	],
+	"settings": {}
+}
