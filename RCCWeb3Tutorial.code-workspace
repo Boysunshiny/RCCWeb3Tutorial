@@ -15,6 +15,9 @@
 		{
 			"name": "Level1",
 			"path": "Level1"
+		},
+		{
+			"path": "Code/solidity/solidity-demo1"
 		}
 	],
 	"settings": {}
