@@ -18,6 +18,9 @@
 		},
 		{
 			"path": "Code/solidity/solidity-demo1"
+		},
+		{
+			"path": "Code/solidity/solidity-demo2"
 		}
 	],
 	"settings": {}
