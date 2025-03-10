@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ .title }}</title>
+</head>
+
+
+<body>
+    <h1> 这是我的index ---》》{{ .title }}</h1>
+    <span>0</span>
+    <button onclick="add()">加</button>
+    <button onclick="sub()">减</button>
+</body>
+
+<script type="text/javascript">
+    function add() {
+        var span = document.querySelector("span");
+        span.innerHTML = parseInt(span.innerHTML) + 1;
+    } function sub() {
+        var span = document.querySelector("span");
+        span.innerHTML = parseInt(span.innerHTML) - 1;
+    } 
+</script>
+
+</html>

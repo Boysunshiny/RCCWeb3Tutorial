@@ -9,6 +9,10 @@
 			"path": "FoundationalTasks/Weekly-Tasks"
 		},
 		{
+			"name": "Golang",
+			"path": "OrientationTask/Golang"
+		},
+		{
 			"name": "Level0",
 			"path": "Level0"
 		},
@@ -17,10 +21,15 @@
 			"path": "Level1"
 		},
 		{
+			"name": "solidity-demo1",
 			"path": "Code/solidity/solidity-demo1"
 		},
 		{
+			"name": "solidity-demo2",
 			"path": "Code/solidity/solidity-demo2"
+		},
+		{
+			"path": "Code/golang/go-demo1"
 		}
 	],
 	"settings": {}
