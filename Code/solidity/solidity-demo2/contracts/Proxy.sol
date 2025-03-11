@@ -1,6 +1,7 @@
 // SPDX-Licence-Identifier: MIT
 
 pragma solidity ^0.8.0;
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 interface ProxyInterface {
     function add() external;
@@ -9,11 +10,13 @@ interface ProxyInterface {
 }
 
 contract Proxy {
+
     address public implementation;
     uint256 public x;
 
     function setImplementation(address _newImplementation) public {
         implementation = _newImplementation;
+
     }
 
     function call() internal {

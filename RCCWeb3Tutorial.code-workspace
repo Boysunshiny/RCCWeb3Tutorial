@@ -30,6 +30,9 @@
 		},
 		{
 			"path": "Code/golang/go-demo1"
+		},
+		{
+			"path": "Code/golang/go-demo2"
 		}
 	],
 	"settings": {}
