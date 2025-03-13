@@ -39,6 +39,9 @@
 		{
 			"name": "go-demo2",
 			"path": "Code/golang/go-demo2"
+		},
+		{
+			"path": "Code/rust/rust-demo1"
 		}
 	],
 	"settings": {}
