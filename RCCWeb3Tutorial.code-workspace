@@ -29,9 +29,15 @@
 			"path": "Code/solidity/solidity-demo2"
 		},
 		{
+			"name": "solidity-demo3",
+			"path": "Code/solidity/solidity-demo3"
+		},
+		{
+			"name": "go-demo1",
 			"path": "Code/golang/go-demo1"
 		},
 		{
+			"name": "go-demo2",
 			"path": "Code/golang/go-demo2"
 		}
 	],
