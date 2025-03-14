@@ -9,8 +9,8 @@ import (
 // 主函数
 func main() {
 
-	// go run main.go queryBalance.go queryTransaction.go queryRecipt.go generateKey.go sendTransaction.go sendToken.go subscribeBlock.go abigenDeploy.go ethereumDeploy.go loadContract.go
-	testid := 10
+	// go run main.go queryBalance.go queryTransaction.go queryRecipt.go generateKey.go sendTransaction.go sendToken.go subscribeBlock.go abigenDeploy.go ethereumDeploy.go loadContract.go execAbigenContract.go execEthclientContract.go
+	testid := 11
 	switch testid {
 	case 1:
 		fmt.Println("开始----》	QueryBalance")
@@ -56,6 +56,17 @@ func main() {
 		fmt.Println("开始----》	EthereumDeploy")
 		LoadContract()
 		fmt.Println("开始----》	EthereumDeploy")
+
+	case 11:
+		fmt.Println("开始----》	EthereumDeploy")
+		ExecAbigenContract()
+		fmt.Println("开始----》	EthereumDeploy")
+
+	case 12:
+		fmt.Println("开始----》	EthereumDeploy")
+		ExecEthclientContract()
+		fmt.Println("开始----》	EthereumDeploy")
+
 	}
 
 }

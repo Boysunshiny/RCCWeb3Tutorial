@@ -1,0 +1,41 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x2513d64B87d6a7b2357cf36480e326D83f99B7BD",
+      "txHash": "0xda7c3ae7ff6f5745fbdbfa22b71f6a671f0f0493ccd283aef2412f6670f7348f",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xAfc2E69cC494B88888d60279d0e29d96DCdF7B74",
+      "txHash": "0x77b38cea4e227a411bad6f36dad380e2bd6f471f02341d69709ebc2a23cf9df2",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "f3ccd6cb2651a164c90c4f25303d947f48e039dcad5c8f1d51de24acbc224a7e": {
+      "address": "0x9c167eD5db0D910dFCd943c927fEC969084503A4",
+      "txHash": "0x68122afb50683e974077b78c208f42d7731cf71d61c9af1dd4f505a41e0cd85e",
+      "layout": {
+        "solcVersion": "0.8.28",
+        "storage": [
+          {
+            "label": "_value",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "Upgrade",
+            "src": "contracts\\Upgrade.sol:6"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {}
+      }
+    }
+  }
+}

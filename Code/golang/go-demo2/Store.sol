@@ -8,7 +8,7 @@ contract Store {
     string public version;
     mapping(bytes32 => bytes32) public items;
 
-    constructor(string memory _version) {
+    constructor(string memory _version) {   
         version = _version;
     }
 

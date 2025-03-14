@@ -4,9 +4,9 @@
 const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
 
-module.exports = buildModule("S011Module", (m) => {
+module.exports = buildModule("ProxyModule", (m) => {
     let args = [];
     let options = {};
-    const s011 = m.contract("S011", args, options);
-    return { s011 };
+    const proxy = m.contract("Proxy", args, options);
+    return { proxy };
 });
