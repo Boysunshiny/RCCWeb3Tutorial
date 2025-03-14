@@ -1,0 +1,8 @@
+{
+  "ProxyModule#Demo": "0xCf6826352099670463Fbb6aE21b3D88507B27043",
+  "ProxyModule#TransparentUpgradeableProxy": "0xEE16797e0c87f7456ab0de116B4Bf56CdC53EE7f",
+  "ProxyModule#ProxyAdmin": "0x7D8B2eD6a1cF470C7a16e311AC0F059c39d59DcF",
+  "DemoModule#Demo": "0xEE16797e0c87f7456ab0de116B4Bf56CdC53EE7f",
+  "DemoV2Module#DemoV2": "0xEE16797e0c87f7456ab0de116B4Bf56CdC53EE7f",
+  "UpgradeModule#DemoV2": "0x33FB0A18b0195546efCCF8A29897d55774F0970F"
+}
