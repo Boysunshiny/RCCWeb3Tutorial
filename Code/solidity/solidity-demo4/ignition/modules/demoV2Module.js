@@ -1,3 +1,4 @@
+require("./upgradeModule")
 const demoV2Module = buildModule("DemoV2Module", (m) => {
     const { proxy } = m.useModule(upgradeModule);
 

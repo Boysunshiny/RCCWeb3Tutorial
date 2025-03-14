@@ -1,5 +1,7 @@
+
+require("./proxymodule")
 const demoModule = buildModule("DemoModule", (m) => {
-    const { proxy, proxyAdmin } = m.useModule(proxyModule);
+    const { proxy, proxyAdmin } = m.useModule(proxymodule);
 
     const demo = m.contractAt("Demo", proxy);
 

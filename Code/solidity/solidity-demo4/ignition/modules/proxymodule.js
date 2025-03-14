@@ -1,5 +1,4 @@
-import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
-
+const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 const proxyModule = buildModule("ProxyModule", (m) => {
     const proxyAdminOwner = m.getAccount(0);
 

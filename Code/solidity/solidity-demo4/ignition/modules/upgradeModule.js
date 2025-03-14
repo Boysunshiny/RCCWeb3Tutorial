@@ -1,3 +1,5 @@
+const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
+
 const upgradeModule = buildModule("UpgradeModule", (m) => {
     const proxyAdminOwner = m.getAccount(0);
 
@@ -12,6 +14,5 @@ const upgradeModule = buildModule("UpgradeModule", (m) => {
     m.call(proxyAdmin, "upgradeAndCall", [proxy, demoV2, encodedFunctionCall], {
         from: proxyAdminOwner,
     });
-
     return { proxyAdmin, proxy };
 });
