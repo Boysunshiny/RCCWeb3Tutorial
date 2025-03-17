@@ -1,5 +1,6 @@
 node_modules
 .env
+flatten
 gas-report.txt
 deployments
 # Hardhat files

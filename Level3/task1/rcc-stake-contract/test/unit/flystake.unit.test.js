@@ -14,7 +14,7 @@ const FLYStakeModule = require("../../ignition/modules/fly_stake");
             const deployment = await ignition.deploy(FLYStakeModule);
             contract = await ethers.getContractAt(
                 "FLYStake",
-                deployment.stake.target,
+                deployment.stakeProxy.target,
                 deployer
             );
         });
