@@ -101,6 +101,8 @@ func ExecEthclientContract() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println("这是signedTx			", signedTx)
+
 	client.SendTransaction(context.Background(), signedTx)
 
 	waitForTransactionReceipt(context.Background(), client, signedTx.Hash())
