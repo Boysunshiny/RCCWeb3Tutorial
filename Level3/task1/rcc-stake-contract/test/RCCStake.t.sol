@@ -10,22 +10,14 @@ contract RCCStakeTest is Test {
     RCCStake RCCStake;
     RCC RCC;
 
-    fallback() external payable {
-    }
+    fallback() external payable {}
 
-    receive() external payable {
-    }
+    receive() external payable {}
 
     function setUp() public {
         RCC = new RCC();
         RCCStake = new RCCStake();
-        RCCStake.initialize
-        (
-            RCC,
-            100,
-            100000000,
-            3000000000000000000
-        );
+        RCCStake.initialize(RCC, 100, 100000000, 3000000000000000000);
     }
 
     function test_AddPool() public {
@@ -36,17 +28,23 @@ contract RCCStakeTest is Test {
         uint256 _withdrawLockedBlocks = 100;
         bool _withUpdate = true;
 
-        RCCStake.addPool(_stTokenAddress, _poolWeight, _minDepositAmount, _withdrawLockedBlocks, _withUpdate);
+        RCCStake.addPool(
+            _stTokenAddress,
+            _poolWeight,
+            _minDepositAmount,
+            _withdrawLockedBlocks,
+            _withUpdate
+        );
 
         (
-          address stTokenAddress, 
-          uint256 poolWeight, 
-          uint256 lastRewardBlock,
-          uint256 accRCCPerShare,
-          uint256 stTokenAmount,
-          uint256 minDepositAmount, 
-          uint256 withdrawLockedBlocks
-        )  = RCCStake.pool(0);
+            address stTokenAddress,
+            uint256 poolWeight,
+            uint256 lastRewardBlock,
+            uint256 accRCCPerShare,
+            uint256 stTokenAmount,
+            uint256 minDepositAmount,
+            uint256 withdrawLockedBlocks
+        ) = RCCStake.pool(0);
         assertEq(stTokenAddress, _stTokenAddress);
         assertEq(poolWeight, _poolWeight);
         assertEq(minDepositAmount, _minDepositAmount);
@@ -60,14 +58,14 @@ contract RCCStakeTest is Test {
         test_AddPool();
         RCCStake.massUpdatePools();
         (
-          address stTokenAddress, 
-          uint256 poolWeight, 
-          uint256 lastRewardBlock,
-          uint256 accRCCPerShare,
-          uint256 stTokenAmount,
-          uint256 minDepositAmount, 
-          uint256 withdrawLockedBlocks
-        )  = RCCStake.pool(0);
+            address stTokenAddress,
+            uint256 poolWeight,
+            uint256 lastRewardBlock,
+            uint256 accRCCPerShare,
+            uint256 stTokenAmount,
+            uint256 minDepositAmount,
+            uint256 withdrawLockedBlocks
+        ) = RCCStake.pool(0);
         assertEq(minDepositAmount, 100);
         assertEq(withdrawLockedBlocks, 100);
         assertEq(lastRewardBlock, 100);
@@ -75,14 +73,14 @@ contract RCCStakeTest is Test {
         vm.roll(1000);
         RCCStake.massUpdatePools();
         (
-          stTokenAddress, 
-          poolWeight, 
-          lastRewardBlock,
-          accRCCPerShare,
-          stTokenAmount,
-          minDepositAmount, 
-          withdrawLockedBlocks
-        )  = RCCStake.pool(0);
+            stTokenAddress,
+            poolWeight,
+            lastRewardBlock,
+            accRCCPerShare,
+            stTokenAmount,
+            minDepositAmount,
+            withdrawLockedBlocks
+        ) = RCCStake.pool(0);
         assertEq(minDepositAmount, 100);
         assertEq(withdrawLockedBlocks, 100);
         assertEq(lastRewardBlock, 1000);
@@ -91,18 +89,17 @@ contract RCCStakeTest is Test {
     function test_SetPoolWeight() public {
         test_AddPool();
         uint256 preTotalPoolWeight = RCCStake.totalPoolWeight();
-        
-        
+
         RCCStake.setPoolWeight(0, 200, false);
         (
-          address stTokenAddress, 
-          uint256 poolWeight, 
-          uint256 lastRewardBlock,
-          uint256 accRCCPerShare,
-          uint256 stTokenAmount,
-          uint256 minDepositAmount, 
-          uint256 withdrawLockedBlocks
-        )  = RCCStake.pool(0);
+            address stTokenAddress,
+            uint256 poolWeight,
+            uint256 lastRewardBlock,
+            uint256 accRCCPerShare,
+            uint256 stTokenAmount,
+            uint256 minDepositAmount,
+            uint256 withdrawLockedBlocks
+        ) = RCCStake.pool(0);
         uint256 totalPoolWeight = RCCStake.totalPoolWeight();
         uint256 expectedTotalPoolWeight = preTotalPoolWeight - 100 + 200;
         assertEq(poolWeight, 200);
@@ -112,44 +109,37 @@ contract RCCStakeTest is Test {
     function test_DepositnativeCurrency() public {
         test_AddPool();
         (
-          address stTokenAddress, 
-          uint256 poolWeight, 
-          uint256 lastRewardBlock,
-          uint256 accRCCPerShare,
-          uint256 stTokenAmount,
-          uint256 minDepositAmount, 
-          uint256 withdrawLockedBlocks
+            address stTokenAddress,
+            uint256 poolWeight,
+            uint256 lastRewardBlock,
+            uint256 accRCCPerShare,
+            uint256 stTokenAmount,
+            uint256 minDepositAmount,
+            uint256 withdrawLockedBlocks
         ) = RCCStake.pool(0);
         uint256 prePoolStTokenAmount = stTokenAmount;
 
-        (
-          uint256 stAmount,
-          uint256 finishedRCC,
-          uint256 pendingRCC
-        ) = RCCStake.user(0, address(this));
+        (uint256 stAmount, uint256 finishedRCC, uint256 pendingRCC) = RCCStake
+            .user(0, address(this));
         uint256 preStAmount = stAmount;
         uint256 preFinishedRCC = finishedRCC;
         uint256 prePendingRCC = pendingRCC;
 
         // First deposit
         address(RCCStake).call{value: 100}(
-          abi.encodeWithSignature("depositnativeCurrency()")
+            abi.encodeWithSignature("depositnativeCurrency()")
         );
         (
-          stTokenAddress, 
-          poolWeight, 
-          lastRewardBlock,
-          accRCCPerShare,
-          stTokenAmount,
-          minDepositAmount, 
-          withdrawLockedBlocks
-        )  = RCCStake.pool(0);
+            stTokenAddress,
+            poolWeight,
+            lastRewardBlock,
+            accRCCPerShare,
+            stTokenAmount,
+            minDepositAmount,
+            withdrawLockedBlocks
+        ) = RCCStake.pool(0);
 
-        (
-          stAmount,
-          finishedRCC,
-          pendingRCC
-        ) = RCCStake.user(0, address(this));
+        (stAmount, finishedRCC, pendingRCC) = RCCStake.user(0, address(this));
 
         uint256 expectedStAmount = preStAmount + 100;
         uint256 expectedFinishedRCC = preFinishedRCC;
@@ -161,37 +151,37 @@ contract RCCStakeTest is Test {
 
         // more deposit
         address(RCCStake).call{value: 200 ether}(
-          abi.encodeWithSignature("depositnativeCurrency()")
+            abi.encodeWithSignature("depositnativeCurrency()")
         );
 
         vm.roll(2000000);
         RCCStake.unstake(0, 100);
         address(RCCStake).call{value: 300 ether}(
-          abi.encodeWithSignature("depositnativeCurrency()")
+            abi.encodeWithSignature("depositnativeCurrency()")
         );
 
         vm.roll(3000000);
         RCCStake.unstake(0, 100);
         address(RCCStake).call{value: 400 ether}(
-          abi.encodeWithSignature("depositnativeCurrency()")
+            abi.encodeWithSignature("depositnativeCurrency()")
         );
 
         vm.roll(4000000);
         RCCStake.unstake(0, 100);
         address(RCCStake).call{value: 500 ether}(
-          abi.encodeWithSignature("depositnativeCurrency()")
+            abi.encodeWithSignature("depositnativeCurrency()")
         );
 
         vm.roll(5000000);
         RCCStake.unstake(0, 100);
         address(RCCStake).call{value: 600 ether}(
-          abi.encodeWithSignature("depositnativeCurrency()")
+            abi.encodeWithSignature("depositnativeCurrency()")
         );
 
         vm.roll(6000000);
         RCCStake.unstake(0, 100);
         address(RCCStake).call{value: 700 ether}(
-          abi.encodeWithSignature("depositnativeCurrency()")
+            abi.encodeWithSignature("depositnativeCurrency()")
         );
 
         RCCStake.withdraw(0);
@@ -199,27 +189,24 @@ contract RCCStakeTest is Test {
 
     function test_Unstake() public {
         test_DepositnativeCurrency();
-        
+
         vm.roll(1000);
         RCCStake.unstake(0, 100);
 
-        (
-          uint256 stAmount,
-          uint256 finishedRCC,
-          uint256 pendingRCC
-        ) = RCCStake.user(0, address(this));
+        (uint256 stAmount, uint256 finishedRCC, uint256 pendingRCC) = RCCStake
+            .user(0, address(this));
         assertEq(stAmount, 0);
         assertEq(finishedRCC, 0);
         assertGt(pendingRCC, 0);
 
         (
-          address stTokenAddress, 
-          uint256 poolWeight, 
-          uint256 lastRewardBlock,
-          uint256 accRCCPerShare,
-          uint256 stTokenAmount,
-          uint256 minDepositAmount, 
-          uint256 withdrawLockedBlocks
+            address stTokenAddress,
+            uint256 poolWeight,
+            uint256 lastRewardBlock,
+            uint256 accRCCPerShare,
+            uint256 stTokenAmount,
+            uint256 minDepositAmount,
+            uint256 withdrawLockedBlocks
         ) = RCCStake.pool(0);
 
         uint256 expectStTokenAmount = 0;
@@ -230,7 +217,7 @@ contract RCCStakeTest is Test {
         test_Unstake();
         uint256 preContractBalance = address(RCCStake).balance;
         uint256 preUserBalance = address(this).balance;
-      
+
         vm.roll(10000);
         RCCStake.withdraw(0);
 
@@ -283,6 +270,12 @@ contract RCCStakeTest is Test {
         uint256 _withdrawLockedBlocks = 100;
         bool _withUpdate = true;
 
-        RCCStake.addPool(_stTokenAddress, _poolWeight, _minDepositAmount, _withdrawLockedBlocks, _withUpdate);
+        RCCStake.addPool(
+            _stTokenAddress,
+            _poolWeight,
+            _minDepositAmount,
+            _withdrawLockedBlocks,
+            _withUpdate
+        );
     }
 }

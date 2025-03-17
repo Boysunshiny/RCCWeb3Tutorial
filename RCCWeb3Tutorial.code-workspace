@@ -13,14 +13,6 @@
 			"path": "OrientationTask/Golang"
 		},
 		{
-			"name": "Level0",
-			"path": "Level0"
-		},
-		{
-			"name": "Level1",
-			"path": "Level1"
-		},
-		{
 			"name": "solidity-demo1",
 			"path": "Code/solidity/solidity-demo1"
 		},
@@ -49,6 +41,15 @@
 			"path": "Code/golang/go-demo2"
 		},
 		{
+			"name": "Level0",
+			"path": "Level0"
+		},
+		{
+			"name": "Level1",
+			"path": "Level1"
+		},
+		{
+			"name": "Level3",
 			"path": "Level3"
 		}
 	],
