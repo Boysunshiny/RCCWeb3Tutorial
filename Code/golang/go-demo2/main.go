@@ -9,8 +9,8 @@ import (
 // 主函数
 func main() {
 
-	// go run main.go queryBalance.go queryTransaction.go queryRecipt.go generateKey.go sendTransaction.go sendToken.go subscribeBlock.go abigenDeploy.go ethereumDeploy.go loadContract.go execAbigenContract.go execEthclientContract.go
-	testid := 11
+	// go run main.go queryBalance.go queryTransaction.go queryRecipt.go generateKey.go sendTransaction.go sendToken.go subscribeBlock.go abigenDeploy.go ethereumDeploy.go loadContract.go execAbigenContract.go execEthclientContract.go execOrigialContract.go
+	testid := 12
 	switch testid {
 	case 1:
 		fmt.Println("开始----》	QueryBalance")
@@ -53,19 +53,24 @@ func main() {
 		fmt.Println("开始----》	EthereumDeploy")
 
 	case 10:
-		fmt.Println("开始----》	EthereumDeploy")
+		fmt.Println("开始----》	LoadContract")
 		LoadContract()
-		fmt.Println("开始----》	EthereumDeploy")
+		fmt.Println("开始----》	LoadContract")
 
 	case 11:
-		fmt.Println("开始----》	EthereumDeploy")
+		fmt.Println("开始----》	ExecAbigenContract")
 		ExecAbigenContract()
-		fmt.Println("开始----》	EthereumDeploy")
+		fmt.Println("开始----》	ExecAbigenContract")
 
 	case 12:
-		fmt.Println("开始----》	EthereumDeploy")
+		fmt.Println("开始----》	ExecEthclientContract")
 		ExecEthclientContract()
-		fmt.Println("开始----》	EthereumDeploy")
+		fmt.Println("开始----》	ExecEthclientContract")
+
+	case 13:
+		fmt.Println("开始----》	ExecOrigialContract")
+		ExecOrigialContract()
+		fmt.Println("开始----》	ExecOrigialContract")
 
 	}
 
