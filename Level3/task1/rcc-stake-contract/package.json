@@ -9,7 +9,8 @@
     "flat": "hardhat flatten ./contracts/FLYStake.sol > ./cache/FLYStake_All.sol",
     "verify": "hardhat ignition verify chain-11155111",
     "tx": "hardhat ignition transactions chain-11155111",
-    "id": "pnpm hardhat ignition deployments"
+    "id": "hardhat ignition deployments",
+    "node": "hardhat node"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",
