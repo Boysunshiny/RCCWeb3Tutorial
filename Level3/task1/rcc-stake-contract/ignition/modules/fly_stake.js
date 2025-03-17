@@ -12,6 +12,8 @@ module.exports = buildModule("FLYStakeModule", (m) => {
     const { token } = m.useModule(tokenModule);
     const { address } = m.contractAt("FLYToken", token);
     const { stake, stakeProxy } = m.useModule(stakeProxyModule);
+
+
     m.call(stake, "initialize", [address, defaultAdminRole, upgradedRole, adminRole])
 
     return { token, stake, stakeProxy };

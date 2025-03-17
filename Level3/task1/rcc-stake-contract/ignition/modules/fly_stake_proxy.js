@@ -4,10 +4,7 @@ module.exports = buildModule("RCCStakeProxyModule", (m) => {
     const stakeProxy = m.contract("ERC1967Proxy", [
         stake,
         "0x",
-    ], {
-        id: "StakeProxy"
-    }
-    );
+    ]);
     const implementation = m.readEventArgument(
         stakeProxy,
         "Upgraded",
