@@ -202,7 +202,7 @@ contract FLYStake is
         _grantRole(ADMIN_ROLE, msg.sender);
 
         setRCC(_RCC);
-        pool.push()
+        pool.push();
         startBlock = _startBlock;
         endBlock = _endBlock;
         rccPerBlock = _rccPerBlock;
