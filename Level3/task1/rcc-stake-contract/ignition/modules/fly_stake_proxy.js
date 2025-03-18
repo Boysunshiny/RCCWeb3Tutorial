@@ -1,6 +1,7 @@
 const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules")
 module.exports = buildModule("RCCStakeProxyModule", (m) => {
     const stake = m.contract("FLYStake");
+
     const stakeProxy = m.contract("ERC1967Proxy", [
         stake,
         "0x",
