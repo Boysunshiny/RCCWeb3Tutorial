@@ -1,16 +1,21 @@
 const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules")
 module.exports = buildModule("RCCStakeProxyModule", (m) => {
-    const stake = m.contract("FLYStake");
+    const deployer = m.getAccount(0);
+    const stake = m.contract("RCCStake", [], {
+        from: deployer
+    });
 
     const stakeProxy = m.contract("ERC1967Proxy", [
         stake,
         "0x",
-    ]);
+    ], {
+        from: deployer
+    });
     const implementation = m.readEventArgument(
         stakeProxy,
         "Upgraded",
         "implementation",
     );
-    console.log(`emit event --> IERC1967.Upgraded ${implementation.id}`);
+
     return { stake, stakeProxy };
 });

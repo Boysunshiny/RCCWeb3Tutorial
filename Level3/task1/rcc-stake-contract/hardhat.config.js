@@ -1,5 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
+require("@openzeppelin/hardhat-upgrades");
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
 const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL || "";

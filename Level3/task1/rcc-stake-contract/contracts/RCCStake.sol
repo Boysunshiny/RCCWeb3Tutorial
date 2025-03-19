@@ -8,11 +8,10 @@ import "@openzeppelin/contracts/utils/math/Math.sol";
 
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
 
-contract FLYStake is
+contract RCCStake is
     Initializable,
     UUPSUpgradeable,
     PausableUpgradeable,
@@ -199,13 +198,12 @@ contract FLYStake is
         __UUPSUpgradeable_init();
         // 调用父合约的初始化函数
         __Pausable_init();
-
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(UPGRADE_ROLE, msg.sender);
         _grantRole(ADMIN_ROLE, msg.sender);
 
         setRCC(_RCC);
-        pool.push();
+
         startBlock = _startBlock;
         endBlock = _endBlock;
         rccPerBlock = _rccPerBlock;

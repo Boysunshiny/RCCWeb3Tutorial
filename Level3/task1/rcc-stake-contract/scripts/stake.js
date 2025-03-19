@@ -1,10 +1,9 @@
 const { ethers, upgrades, ignition } = require("hardhat");
 
 const { developmentChains } = require("./config");
-const FLYStakeModule = require("../ignition/modules/fly_stake");
+const FLYStakeModule = require("../ignition/modules/stake");
 async function main() {
-    const accounts = await ethers.getSigners();
-    deployer = accounts[0];
+    const [deployer] = await ethers.getSigners();
     console.log("Deploying contract with the account:", deployer.address);
     console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 
@@ -22,11 +21,19 @@ async function main() {
         module.stakeProxy.target, // 这里代用的是代理合约地址
         deployer
     );
-    console.log("contract1 address:", contract.target);
+    console.log("proxy address:", contract.target);
 
 
     const len = await contract.poolLength()  //成功
     console.log("测试调用成功", len);
+
+
+
+    // 授予 admin 权限
+    const adminRole = ethers.keccak256(ethers.toUtf8Bytes("admin_role"));
+    await contract.grantRole(adminRole, deployer.address);
+    console.log("测试调用成功", adminRole);
+
 
     // contract2 = await ethers.getContractAt("FLYStake", module.stake.target);
     // console.log("contract2 address:", contract2.target);
@@ -56,17 +63,17 @@ async function main() {
     //     //         bool _withUpdate = true;
 
 
-    console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-    const addPoolData = await contract.connect(deployer).addPool(
-        "0x0000000000000000000000000000000000000000",
-        100,
-        100,
-        100,
-        true
-    )  //成功
+    // console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+    // const addPoolData = await contract.connect(deployer).addPool(
+    //     ethers.ZeroAddress,
+    //     100,
+    //     100,
+    //     100,
+    //     false
+    // )  //成功
 
-    console.log("测试调用addPool成功", addPoolData);
-    console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+    // console.log("测试调用addPool成功", addPoolData);
+    // console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 }
 
 main().then(
