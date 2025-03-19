@@ -8,4 +8,4 @@ module.exports = buildModule("RccTokenModule", (m) => {
     };
     const token = m.contract("RccToken", args, options)
     return { token };
-});
+}); 

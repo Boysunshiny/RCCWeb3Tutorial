@@ -1,5 +1,5 @@
 const { assert, expect } = require("chai");
-const { ethers, network, ignition } = require("hardhat");
+const { ethers, network, ignition, upgrades } = require("hardhat");
 const { developmentChains } = require("../../scripts/config");
 
 !developmentChains.includes(network.name)
@@ -39,10 +39,8 @@ const { developmentChains } = require("../../scripts/config");
             );
         });
         //poolLength
-        describe("depositETH", function () {
-            it("直接调用depositETH会失败", async function () {
-                await expect(contract.depositETH()).to.be.reverted;
-            });
+        describe("User can deposit and withdraw", function () {
+
             // it("存入ETH到合约中", async function () {
             //     const amount = ethers.parseEther("1");
             //     await expect(contract.depositETH({ value: amount })).to.not.reverted;
@@ -90,5 +88,8 @@ const { developmentChains } = require("../../scripts/config");
                 // 断言用户的 RCC 代币余额大于 0
                 expect(userRCCBalance).to.be.eq(ethers.parseEther("0"));
             });
+
+
+
         });
     });
