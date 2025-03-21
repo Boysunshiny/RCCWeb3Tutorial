@@ -53,12 +53,19 @@
 			"path": "Level3"
 		},
 		{
+			"name": "EasySwapBackend",
 			"path": "ProjectsTask/EasySwapBackend"
 		},
 		{
+			"name": "EasySwapContract",
 			"path": "ProjectsTask/EasySwapContract"
 		},
 		{
+			"name": "EasySwapSync",
+			"path": "ProjectsTask/EasySwapSync"
+		},
+		{
+			"name": "nft-market-fe",
 			"path": "ProjectsTask/nft-market-fe"
 		}
 	],
