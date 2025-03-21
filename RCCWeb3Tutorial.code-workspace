@@ -51,6 +51,15 @@
 		{
 			"name": "Level3",
 			"path": "Level3"
+		},
+		{
+			"path": "ProjectsTask/EasySwapBackend"
+		},
+		{
+			"path": "ProjectsTask/EasySwapContract"
+		},
+		{
+			"path": "ProjectsTask/nft-market-fe"
 		}
 	],
 	"settings": {}

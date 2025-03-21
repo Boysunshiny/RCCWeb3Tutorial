@@ -33,6 +33,7 @@ describe("EasySwap Test", function () {
         EIP712Name = "EasySwapOrderBook"
         EIP712Version = "1"
         esDex = await upgrades.deployProxy(esDex, [newProtocolShare, newESVault, EIP712Name, EIP712Version], { initializer: 'initialize' });
+
         // await esDex.waitForDeployment();
         // console.log("esDex deployed to:", await esDex.getAddress());
 
