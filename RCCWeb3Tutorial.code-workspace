@@ -53,6 +53,10 @@
 			"path": "Level3"
 		},
 		{
+			"name": "Level4",
+			"path": "Level4"
+		},
+		{
 			"name": "EasySwapBackend",
 			"path": "ProjectsTask/EasySwapBackend"
 		},
@@ -67,6 +71,18 @@
 		{
 			"name": "nft-market-fe",
 			"path": "ProjectsTask/nft-market-fe"
+		},
+		{
+			"name": "lsjv-nft-market-contract",
+			"path": "Level4/task1/lsjv-nft-market-contract"
+		},
+		{
+			"name": "lsjv-nft-market-sync",
+			"path": "Level4/task1/lsjv-nft-market-sync"
+		},
+		{
+			"name": "rust-demo2",
+			"path": "Code/rust/rust-demo2"
 		}
 	],
 	"settings": {}
