@@ -85,7 +85,7 @@ contract OrderStorage is Initializable {
         if (LibOrder.isSentinel(orderQueue.head)) { // 队列是否初始化
             orderQueues[order.nft.collection][order.side][ // 创建新的队列
                 order.price
-            ] = LibOrder.OrderQueue(
+            ]  =LibOrder.OrderQueue(
                 LibOrder.ORDERKEY_SENTINEL,
                 LibOrder.ORDERKEY_SENTINEL
             );

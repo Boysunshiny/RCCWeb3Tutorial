@@ -33,6 +33,10 @@
 			"path": "Code/rust/rust-demo1"
 		},
 		{
+			"name": "rust-demo2",
+			"path": "Code/rust/rust-demo2"
+		},
+		{
 			"name": "go-demo1",
 			"path": "Code/golang/go-demo1"
 		},
@@ -79,10 +83,6 @@
 		{
 			"name": "lsjv-nft-market-sync",
 			"path": "Level4/task1/lsjv-nft-market-sync"
-		},
-		{
-			"name": "rust-demo2",
-			"path": "Code/rust/rust-demo2"
 		}
 	],
 	"settings": {}
