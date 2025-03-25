@@ -40,7 +40,7 @@ var DaemonCmd = &cobra.Command{
 				onSyncExit <- err
 				return
 			}
-
+ 
 			_, err = xzap.SetUp(*cfg.Log) // 初始化日志模块
 			if err != nil {
 				xzap.WithContext(ctx).Error("Failed to set up logger", zap.Error(err))
