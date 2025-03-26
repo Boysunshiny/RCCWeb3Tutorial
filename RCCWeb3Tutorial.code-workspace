@@ -83,6 +83,9 @@
 		{
 			"name": "lsjv-nft-market-sync",
 			"path": "Level4/task1/lsjv-nft-market-sync"
+		},
+		{
+			"path": "Level4/task1/lsjv-nft-market-bakcend"
 		}
 	],
 	"settings": {}
